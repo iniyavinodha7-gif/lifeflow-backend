@@ -18,8 +18,9 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-db_url = os.getenv("https://lifeflow-db-iniya.aws-ap-south-1.turso.io")
-db_token = os.getenv("eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhIjoicnciLCJpYXQiOjE3ODI5MDQ4NTgsImlkIjoiMDE5ZjFkNjYtYzAwMS03MzNhLTkzNzktYjkzOGUwZTQwNzYzIiwia2lkIjoicGpjZDA5ZEVhUUZjQlBLZmlTclRTb3ZVTlk4MkV5ZlVJTmNELXp4OVZTVSIsInJpZCI6Ijk1ZjQ5Zjg2LWNmYTEtNGE2My04NDJiLTVhMGVlYjQ2YTk2ZiJ9.7KX2x74Y5ZFJQJF47wUB8eL90HaDRrmuRBAEv-Q926xYFyzpsGyqRUfSDbRePJShggjzlVfCltAtcC_4GYXsDw")
+# Change from hardcoded strings to the proper environment keys
+db_url = os.getenv("TURSO_DATABASE_URL")
+db_token = os.getenv("TURSO_AUTH_TOKEN")
 
 class AuthRequest(BaseModel):
     email: str
